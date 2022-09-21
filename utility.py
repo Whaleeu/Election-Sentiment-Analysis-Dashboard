@@ -33,12 +33,6 @@ def package_message(raw):
     return json.dumps(tweet_dict, indent=2).encode('utf-8')
 
 
-
-import time
-import time
-
-import time
-
 class MyStream(tweepy.StreamingClient):
 
     def on_connect(self):
@@ -67,7 +61,6 @@ class MyStream(tweepy.StreamingClient):
         print("Could not connect to the Stream")
         return super().on_connection_error()
 
-stream = MyStream(config.BEARER_TOKEN)
 
 def delete_rules(stream):
     rules = stream.get_rules().data
