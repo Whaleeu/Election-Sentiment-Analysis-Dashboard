@@ -33,11 +33,8 @@ def package_message(raw):
     return json.dumps(tweet_dict, indent=2).encode('utf-8')
 
 
-
-import time
-import time
-
 class MyStream(tweepy.StreamingClient):
+
     def on_connect(self):
         print("Connected to Stream!!!\n ===================")
         
@@ -50,6 +47,19 @@ class MyStream(tweepy.StreamingClient):
         print(message)
 
         time.sleep(1)
+
+
+    def on_error(self, status_code):
+        if status_code == 420:
+            # returning False in on_data disconnects the stream
+            return False
+
+    def start_stream(self):
+        self.filter(tweet_fields=['referenced_tweets'])
+
+    def on_connection_error(self):
+        print("Could not connect to the Stream")
+        return super().on_connection_error()
 
 
 def delete_rules(stream):
