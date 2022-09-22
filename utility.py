@@ -3,8 +3,8 @@ import tweepy
 import ast
 import time 
 import json
-
-from config import KAFKA_SERVER, TOPIC_NAME
+from kafka_server import producer
+from config import KAFKA_SERVER, TOPIC
 
 bat_rule_1 = "(Tinubu OR Asiwaju) lang:en"
 bat_rule_2 = "(#BAT2023 OR #ABAT2023) lang:en"
@@ -16,10 +16,7 @@ atk_query_1 = "(#AtikuOkowa2023 OR #Atiku) lang:en"
 atk_query_2 = "Atiku lang:en"
 
 
-producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
-
-
-def send_message(msg, topic=TOPIC_NAME):
+def send_message(msg, topic=TOPIC):
     send_message.called = True
     producer.send(topic, msg)
     producer.flush()
