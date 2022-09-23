@@ -41,8 +41,7 @@ class MyStream(tweepy.StreamingClient):
         message = package_message(raw_data)
 
         send_message(message)
-        print(message)
-
+        
         time.sleep(1)
 
 
