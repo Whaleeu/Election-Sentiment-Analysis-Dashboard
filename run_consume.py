@@ -9,7 +9,7 @@ from Consume_Stream import load_gbq
 
 
 load_dotenv()
-BEARER_TOKEN = os.environ.get("BEARER_TOKEN ")
+BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 TABLE_ID = os.environ.get("TABLE_ID")
 PROJECT_ID = os.environ.get("PROJECT_ID")
 KAFKA_SERVER = os.environ.get("KAFKA_SERVER")
