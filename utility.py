@@ -4,7 +4,7 @@ import ast
 import time 
 import json
 from kafka_server import producer
-from config import KAFKA_SERVER, TOPIC
+#from config import KAFKA_SERVER, TOPIC
 
 bat_rule_1 = "(Tinubu OR Asiwaju) lang:en"
 bat_rule_2 = "(#BAT2023 OR #ABAT2023) lang:en"
